@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RVImages</string>
+    <string name="loaded_image_notification">ЗАГРУЖЕНА КАРТИНКА&#160;</string>
+    <string name="loaded_all_images_notification">ЗАГРУЖЕНЫ ВСЕ КАРТИНКИ</string>
+</resources>
