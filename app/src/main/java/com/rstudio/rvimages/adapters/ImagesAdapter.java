@@ -99,7 +99,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImagesView
                 mToast = Toast.makeText(mContext, mContext.getString(R.string.loaded_image_notification) + mCount, Toast.LENGTH_SHORT);
             }
             mToast.setText(mContext.getString(R.string.loaded_image_notification) + mCount);
-                    mToast.show();
+            mToast.show();
 
             //show alert when everything is loaded
             if (mCount == mImages.size()) {

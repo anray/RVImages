@@ -1,20 +1,16 @@
-package com.rstudio.rvimages;
+package com.rstudio.rvimages.activities;
 
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 
+import com.rstudio.rvimages.R;
 import com.rstudio.rvimages.adapters.ImagesAdapter;
 import com.rstudio.rvimages.utils.SimpleItemTouchHelperCallback;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private ImagesAdapter mImagesAdapter;
     private RecyclerView mRecyclerView;
     private List<String> mLinks;
-
 
 
     @Override
@@ -78,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         //endregion
 
     }
-
 
 
 }
