@@ -50,6 +50,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImagesView
         mContext = parent.getContext();
         View convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_item, parent, false);
 
+
         return new ImagesViewHolder(convertView, mCustomClickListener);
     }
 
@@ -67,6 +68,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImagesView
                 .placeholder(holder.mDummy)
                 //.resize(768, 512)
                 .fit()
+
                 //.centerCrop()
                 //.networkPolicy(NetworkPolicy.OFFLINE)
                 .into(holder.mImageView, new Callback() {

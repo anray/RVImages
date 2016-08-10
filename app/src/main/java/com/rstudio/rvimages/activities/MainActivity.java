@@ -3,16 +3,18 @@ package com.rstudio.rvimages.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
 import com.rstudio.rvimages.R;
 import com.rstudio.rvimages.adapters.ImagesAdapter;
+import com.rstudio.rvimages.utils.PreCachingLayoutManager;
 import com.rstudio.rvimages.utils.SimpleItemTouchHelperCallback;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import android.support.v7.widget.LinearLayoutManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         mLinks = new ArrayList<String>();
         mLinks.add("http://www.anekdotov-mnogo.ru/image-prikol//smeshnie_kartinki_146636585987.jpg");
@@ -53,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView = (RecyclerView) findViewById(R.id.image_list);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        //need to preload all items in RecyclerView
+        int layoutHeight = (int) getResources().getDimension(R.dimen.image_height) * PICTURES_AMOUNT;
+        PreCachingLayoutManager linearLayoutManager = new PreCachingLayoutManager(this, layoutHeight);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-
 
         mImagesAdapter = new ImagesAdapter(mLinks, getApplicationContext(), new ImagesAdapter.ImagesViewHolder.CustomClickListener() {
             @Override
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         });
         mRecyclerView.setAdapter(mImagesAdapter);
 
+
         //region ====== attached for swipes and drags
         ItemTouchHelper.Callback callback =
                 new SimpleItemTouchHelperCallback(mImagesAdapter);
@@ -73,6 +78,5 @@ public class MainActivity extends AppCompatActivity {
         //endregion
 
     }
-
 
 }
